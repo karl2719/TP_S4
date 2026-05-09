@@ -215,11 +215,11 @@ CREATE TABLE gold_payement (
 
 
 INSERT INTO codes_remise (cle, valeur, description) VALUES
-('remise_gold_pct',         '123ABC',  'remise_gold_pct'),
-('remise_gold_pct',         '456AZD',  'remise_gold_pct'),
-('remise_gold_pct',         '745FDS',  'remise_gold_pct'),
-('remise_gold_pct',         '12DS2D',  'remise_gold_pct'),
-('remise_gold_pct',         '3EW34G',  'remise_gold_pct');
+('remise_gold_pct_1',       '123ABC',  'remise_gold_pct'),
+('remise_gold_pct_2',       '456AZD',  'remise_gold_pct'),
+('remise_gold_pct_3',       '745FDS',  'remise_gold_pct'),
+('remise_gold_pct_4',       '12DS2D',  'remise_gold_pct'),
+('remise_gold_pct_5',       '3EW34G',  'remise_gold_pct');
 
 
 INSERT INTO users (nom, prenom, email, password, genre, date_naissance) VALUES
