@@ -5,9 +5,6 @@ CREATE DATABASE IF NOT EXISTS alimea
 
 USE alimea;
 
--- ============================================================
---  1. UTILISATEURS
--- ============================================================
 
 CREATE TABLE users (
     id            INT UNSIGNED    NOT NULL AUTO_INCREMENT,
@@ -23,9 +20,6 @@ CREATE TABLE users (
 ) ;
 
 
--- ============================================================
---  2. INFORMATIONS DE SANTÉ
--- ============================================================
 
 CREATE TABLE user_health_history (
     id          INT UNSIGNED   NOT NULL AUTO_INCREMENT,
@@ -41,9 +35,6 @@ CREATE TABLE user_health_history (
     INDEX idx_health_user (user_id)
 ) ;
 
--- ============================================================
---  3. PORTEFEUILLE UTILISATEUR
--- ============================================================
 
 CREATE TABLE wallets (
     id       INT UNSIGNED   NOT NULL AUTO_INCREMENT,
@@ -57,9 +48,6 @@ CREATE TABLE wallets (
 ) ;
 
 
--- ============================================================
---  4. TRANSACTIONS DU PORTEFEUILLE
--- ============================================================
 
 CREATE TABLE wallet_transactions (
     id          INT UNSIGNED   NOT NULL AUTO_INCREMENT,
@@ -76,9 +64,6 @@ CREATE TABLE wallet_transactions (
 ) ;
 
 
--- ============================================================
---  5. CODES DE RECHARGE PORTEFEUILLE
--- ============================================================
 
 CREATE TABLE codes_portefeuille (
     id         INT UNSIGNED   NOT NULL AUTO_INCREMENT,
@@ -96,9 +81,6 @@ CREATE TABLE codes_portefeuille (
 ) ;
 
 
--- ============================================================
---  6. RÉGIMES ALIMENTAIRES
--- ============================================================
 
 CREATE TABLE regimes (
     id               INT UNSIGNED   NOT NULL AUTO_INCREMENT,
@@ -107,7 +89,6 @@ CREATE TABLE regimes (
     pct_viande       DECIMAL(5,2)   NOT NULL DEFAULT 0.00 COMMENT 'Pourcentage viande (0–100)',
     pct_poisson      DECIMAL(5,2)   NOT NULL DEFAULT 0.00 COMMENT 'Pourcentage poisson (0–100)',
     pct_volaille     DECIMAL(5,2)   NOT NULL DEFAULT 0.00 COMMENT 'Pourcentage volaille (0–100)',
-    -- pct_viande + pct_poisson + pct_volaille doit = 100 (vérifié applicatif)
     variation_poids_kg DECIMAL(5,2) NOT NULL COMMENT 'Variation de poids possible en kg (+ ou -)',
     objectif_cible   ENUM('augmenter_poids','reduire_poids','imc_ideal','tous') NOT NULL DEFAULT 'tous',
     is_active        TINYINT(1)     NOT NULL DEFAULT 1,
@@ -118,9 +99,6 @@ CREATE TABLE regimes (
 ) ;
 
 
--- ============================================================
---  7. PRIX DES RÉGIMES PAR DURÉE
--- ============================================================
 
 CREATE TABLE regime_prix (
     id         INT UNSIGNED   NOT NULL AUTO_INCREMENT,
@@ -135,9 +113,6 @@ CREATE TABLE regime_prix (
 ) ;
 
 
--- ============================================================
---  8. ACTIVITÉS SPORTIVES
--- ============================================================
 
 CREATE TABLE activites_sportives (
     id                 INT UNSIGNED  NOT NULL AUTO_INCREMENT,
@@ -152,9 +127,6 @@ CREATE TABLE activites_sportives (
 ) ;
 
 
--- ============================================================
---  9. SOUSCRIPTIONS RÉGIMES (utilisateur ↔ régime acheté)
--- ============================================================
 
 CREATE TABLE user_regimes_paiement (
     id          INT UNSIGNED  NOT NULL AUTO_INCREMENT,
@@ -178,9 +150,6 @@ CREATE TABLE user_regimes_paiement (
 ) ;
 
 
--- ============================================================
---  10. RECOMMANDATIONS D'ACTIVITÉS (lien user ↔ activité)
--- ============================================================
 
 CREATE TABLE user_activites (
     id           INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -199,9 +168,6 @@ CREATE TABLE user_activites (
 ) ;
 
 
--- ============================================================
---  11. ADMINISTRATEURS (back-office)
--- ============================================================
 
 CREATE TABLE admin_users (
     id            INT UNSIGNED  NOT NULL AUTO_INCREMENT,
@@ -255,9 +221,6 @@ INSERT INTO codes_remise (cle, valeur, description) VALUES
 ('remise_gold_pct',         '12DS2D',  'remise_gold_pct'),
 ('remise_gold_pct',         '3EW34G',  'remise_gold_pct');
 
--- ============================================================
---  DONNÉES MINIMALES
--- ============================================================
 
 INSERT INTO users (nom, prenom, email, password, genre, date_naissance) VALUES
 ('Martin',  'Lina',   'lina.martin@example.com',   '$2y$10$demoHashLina',   'femme', '1999-04-12'),
@@ -298,11 +261,6 @@ INSERT INTO codes_portefeuille (code, montant) VALUES
 ('WALLET-0015', 100.00);
 
 
--- ============================================================
---  DONNÉES INITIALES — Compte super-admin
---  Mot de passe : admin  (à changer en prod)
--- ============================================================
 
 INSERT INTO admin_users (username, password, nom_complet, role) VALUES
 ('admin', 'admin', 'Super Administrateur', 'superadmin');
--- NB : hash généré avec password_hash('Admin@1234', PASSWORD_BCRYPT)
