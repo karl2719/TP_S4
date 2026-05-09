@@ -926,7 +926,7 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
-   <img src="logo.png" alt="Alimea" srcset="" style="max-width: 100px">
+   <img src="images/icons/logo.png" alt="Alimea" srcset="" style="max-width: 100px">
   </div>
   <ul class="nav-links">
     <li><a href="#how">Comment ça marche</a></li>
@@ -1268,7 +1268,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo"><img src="logo.png" alt="" srcset=""></div>
+  <div class="footer-logo"><img src="/images/icons/logo.png" alt="" srcset=""></div>
   <ul class="footer-links">
     <li><a href="#">Confidentialité</a></li>
     <li><a href="#">CGV</a></li>
