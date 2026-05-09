@@ -4,17 +4,16 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserHealthHistoryModel extends Model
+class user_activites extends Model
 {
-    protected $table = 'user_health_history';
+    protected $table = 'user_activites';
     protected $primaryKey = 'id';
     protected $returnType = 'array';
 
     protected $allowedFields = [
         'user_id',
-        'taille_cm',
-        'poids_kg',
-        'objectif',
-        'updated_at',
+        'activite_id',
+        'regime_id',
+        'assigned_at',
     ];
 }

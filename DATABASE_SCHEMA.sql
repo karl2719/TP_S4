@@ -49,6 +49,7 @@ CREATE TABLE wallets (
     id       INT UNSIGNED   NOT NULL AUTO_INCREMENT,
     user_id  INT UNSIGNED   NOT NULL UNIQUE,
     is_gold  TINYINT(1)     NOT NULL DEFAULT 0,
+    sold     DECIMAL(10,2)  NOT NULL DEFAULT 0.0,
     gold_activated_at DATETIME NULL COMMENT 'Date d activation de l option Gold',
     PRIMARY KEY (id),
     CONSTRAINT fk_wallet_user FOREIGN KEY (user_id)
@@ -227,9 +228,10 @@ CREATE TABLE codes_remise (
     INDEX idx_cle (cle)
 ) ;
 
-CREATE TABLE codes_remise_transactions (
+CREATE TABLE gold_payement (
     id          INT UNSIGNED  NOT NULL AUTO_INCREMENT,
     user_id     INT UNSIGNED  NOT NULL,
+    prix_paye   DECIMAL(10,2) NOT NULL,
     code_remise_id INT UNSIGNED NOT NULL,
     created_at  DATETIME      NOT NULL DEFAULT CURRENT_TIMESTAMP
                               ON UPDATE CURRENT_TIMESTAMP,

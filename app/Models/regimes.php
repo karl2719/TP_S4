@@ -4,17 +4,19 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ActiviteSportiveModel extends Model
+class regimes extends Model
 {
-    protected $table = 'activites_sportives';
+    protected $table = 'regimes';
     protected $primaryKey = 'id';
     protected $returnType = 'array';
 
     protected $allowedFields = [
         'nom',
         'description',
-        'intensite',
-        'calories_par_heure',
+        'pct_viande',
+        'pct_poisson',
+        'pct_volaille',
+        'variation_poids_kg',
         'objectif_cible',
         'is_active',
         'created_at',

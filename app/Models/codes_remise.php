@@ -4,19 +4,16 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserModel extends Model
+class codes_remise extends Model
 {
-    protected $table = 'users';
+    protected $table = 'codes_remise';
     protected $primaryKey = 'id';
     protected $returnType = 'array';
 
     protected $allowedFields = [
-        'nom',
-        'prenom',
-        'email',
-        'password',
-        'genre',
-        'date_naissance',
+        'cle',
+        'valeur',
+        'description',
         'created_at',
     ];
 }
