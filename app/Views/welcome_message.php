@@ -1,331 +1,1290 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Welcome to CodeIgniter 4!</title>
-    <meta name="description" content="The small framework with powerful features">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="/favicon.ico">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aliméa — Votre programme minceur personnalisé</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <!-- STYLES -->
+  :root {
+    --rose: #E8849A;
+    --rose-light: #F7D0DA;
+    --rose-pale: #FDF0F3;
+    --rose-deep: #C45A74;
+    --rose-dark: #8B3A52;
+    --cream: #FAF7F4;
+    --sand: #F0EAE2;
+    --text: #2A1A20;
+    --text-mid: #7A5A64;
+    --text-light: #B8959F;
+    --green: #8BAE7A;
+    --green-light: #E8F0E4;
+  }
 
-    <style {csp-style-nonce}>
-        * {
-            transition: background-color 300ms ease, color 300ms ease;
-        }
-        *:focus {
-            background-color: rgba(221, 72, 20, .2);
-            outline: none;
-        }
-        html, body {
-            color: rgba(33, 37, 41, 1);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-            font-size: 16px;
-            margin: 0;
-            padding: 0;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
-        }
-        header {
-            background-color: rgba(247, 248, 249, 1);
-            padding: .4rem 0 0;
-        }
-        .menu {
-            padding: .4rem 2rem;
-        }
-        header ul {
-            border-bottom: 1px solid rgba(242, 242, 242, 1);
-            list-style-type: none;
-            margin: 0;
-            overflow: hidden;
-            padding: 0;
-            text-align: right;
-        }
-        header li {
-            display: inline-block;
-        }
-        header li a {
-            border-radius: 5px;
-            color: rgba(0, 0, 0, .5);
-            display: block;
-            height: 44px;
-            text-decoration: none;
-        }
-        header li.menu-item a {
-            border-radius: 5px;
-            margin: 5px 0;
-            height: 38px;
-            line-height: 36px;
-            padding: .4rem .65rem;
-            text-align: center;
-        }
-        header li.menu-item a:hover,
-        header li.menu-item a:focus {
-            background-color: rgba(221, 72, 20, .2);
-            color: rgba(221, 72, 20, 1);
-        }
-        header .logo {
-            float: left;
-            height: 44px;
-            padding: .4rem .5rem;
-        }
-        header .menu-toggle {
-            display: none;
-            float: right;
-            font-size: 2rem;
-            font-weight: bold;
-        }
-        header .menu-toggle button {
-            background-color: rgba(221, 72, 20, .6);
-            border: none;
-            border-radius: 3px;
-            color: rgba(255, 255, 255, 1);
-            cursor: pointer;
-            font: inherit;
-            font-size: 1.3rem;
-            height: 36px;
-            padding: 0;
-            margin: 11px 0;
-            overflow: visible;
-            width: 40px;
-        }
-        header .menu-toggle button:hover,
-        header .menu-toggle button:focus {
-            background-color: rgba(221, 72, 20, .8);
-            color: rgba(255, 255, 255, .8);
-        }
-        header .heroe {
-            margin: 0 auto;
-            max-width: 1100px;
-            padding: 1rem 1.75rem 1.75rem 1.75rem;
-        }
-        header .heroe h1 {
-            font-size: 2.5rem;
-            font-weight: 500;
-        }
-        header .heroe h2 {
-            font-size: 1.5rem;
-            font-weight: 300;
-        }
-        section {
-            margin: 0 auto;
-            max-width: 1100px;
-            padding: 2.5rem 1.75rem 3.5rem 1.75rem;
-        }
-        section h1 {
-            margin-bottom: 2.5rem;
-        }
-        section h2 {
-            font-size: 120%;
-            line-height: 2.5rem;
-            padding-top: 1.5rem;
-        }
-        section pre {
-            background-color: rgba(247, 248, 249, 1);
-            border: 1px solid rgba(242, 242, 242, 1);
-            display: block;
-            font-size: .9rem;
-            margin: 2rem 0;
-            padding: 1rem 1.5rem;
-            white-space: pre-wrap;
-            word-break: break-all;
-        }
-        section code {
-            display: block;
-        }
-        section a {
-            color: rgba(221, 72, 20, 1);
-        }
-        section svg {
-            margin-bottom: -5px;
-            margin-right: 5px;
-            width: 25px;
-        }
-        .further {
-            background-color: rgba(247, 248, 249, 1);
-            border-bottom: 1px solid rgba(242, 242, 242, 1);
-            border-top: 1px solid rgba(242, 242, 242, 1);
-        }
-        .further h2:first-of-type {
-            padding-top: 0;
-        }
-        .svg-stroke {
-            fill: none;
-            stroke: #000;
-            stroke-width: 32px;
-        }
-        footer {
-            background-color: rgba(221, 72, 20, .8);
-            text-align: center;
-        }
-        footer .environment {
-            color: rgba(255, 255, 255, 1);
-            padding: 2rem 1.75rem;
-        }
-        footer .copyrights {
-            background-color: rgba(62, 62, 62, 1);
-            color: rgba(200, 200, 200, 1);
-            padding: .25rem 1.75rem;
-        }
-        @media (max-width: 629px) {
-            header ul {
-                padding: 0;
-            }
-            header .menu-toggle {
-                padding: 0 1rem;
-            }
-            header .menu-item {
-                background-color: rgba(244, 245, 246, 1);
-                border-top: 1px solid rgba(242, 242, 242, 1);
-                margin: 0 15px;
-                width: calc(100% - 30px);
-            }
-            header .menu-toggle {
-                display: block;
-            }
-            header .hidden {
-                display: none;
-            }
-            header li.menu-item a {
-                background-color: rgba(221, 72, 20, .1);
-            }
-            header li.menu-item a:hover,
-            header li.menu-item a:focus {
-                background-color: rgba(221, 72, 20, .7);
-                color: rgba(255, 255, 255, .8);
-            }
-        }
-    </style>
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(250,247,244,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(232,132,154,0.15);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--rose-deep);
+    letter-spacing: 0.02em;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .nav-logo .leaf {
+    width: 24px; height: 24px;
+    background: linear-gradient(135deg, var(--rose-deep), var(--rose));
+    border-radius: 0 60% 0 60%;
+    transform: rotate(-20deg);
+    flex-shrink: 0;
+  }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--text-mid);
+    transition: color 0.2s;
+    letter-spacing: 0.03em;
+  }
+  .nav-links a:hover { color: var(--rose-deep); }
+
+  .nav-cta {
+    background: var(--rose-deep);
+    color: white !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 50px;
+    font-weight: 500 !important;
+    transition: background 0.2s, transform 0.15s !important;
+  }
+  .nav-cta:hover { background: var(--rose-dark) !important; transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 8rem 4rem 4rem;
+    gap: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 60%;
+    height: 110%;
+    background: radial-gradient(ellipse at 70% 40%, var(--rose-light) 0%, transparent 65%),
+                radial-gradient(ellipse at 30% 80%, var(--sand) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-text { position: relative; z-index: 1; }
+
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--rose-pale);
+    border: 1px solid var(--rose-light);
+    color: var(--rose-deep);
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.8rem;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.1s forwards;
+  }
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--rose);
+    border-radius: 50%;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 5.2rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.25s forwards;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--rose-deep);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+    max-width: 430px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.4s forwards;
+  }
+
+  .hero-actions {
+    display: flex; align-items: center; gap: 1.2rem;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.55s forwards;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--rose-deep);
+    color: white;
+    padding: 0.85rem 2.2rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(196,90,116,0.3);
+  }
+  .btn-primary:hover {
+    background: var(--rose-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(196,90,116,0.4);
+  }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--text-mid);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .btn-ghost:hover { color: var(--rose-deep); }
+  .btn-ghost svg { transition: transform 0.2s; }
+  .btn-ghost:hover svg { transform: translateX(3px); }
+
+  /* Hero image panel */
+  .hero-visual {
+    position: relative; z-index: 1;
+    display: flex; flex-direction: column; align-items: center;
+    opacity: 0;
+    animation: fadeIn 0.9s 0.5s forwards;
+  }
+
+  .hero-card-main {
+    background: white;
+    border-radius: 28px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 20px 60px rgba(180,80,100,0.12), 0 4px 16px rgba(0,0,0,0.06);
+    position: relative;
+  }
+
+  .plate-visual {
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: conic-gradient(
+      var(--green) 0% 30%,
+      var(--rose-light) 30% 55%,
+      #F5C17A 55% 70%,
+      #B8D9A8 70% 85%,
+      var(--rose-pale) 85% 100%
+    );
+    margin: 0 auto 1.2rem;
+    position: relative;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  }
+  .plate-visual::after {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    background: white;
+    border-radius: 50%;
+  }
+  .plate-icon {
+    position: absolute;
+    inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 1;
+    font-size: 2.5rem;
+  }
+
+  .meal-label {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+  }
+  .meal-sub {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-bottom: 1.4rem;
+  }
+
+  .macros {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .macro {
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 0.6rem;
+    text-align: center;
+  }
+  .macro-val {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .macro-name {
+    font-size: 0.7rem;
+    color: var(--text-light);
+  }
+
+  .hero-badge {
+    position: absolute;
+    top: -16px; right: -16px;
+    background: var(--green-light);
+    border: 1px solid var(--green);
+    border-radius: 16px;
+    padding: 0.5rem 0.8rem;
+    display: flex; align-items: center; gap: 6px;
+    font-size: 0.75rem;
+    color: #4A7A3A;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .floating-chip {
+    position: absolute;
+    background: white;
+    border-radius: 20px;
+    padding: 0.55rem 0.9rem;
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    white-space: nowrap;
+  }
+  .chip-1 { bottom: -20px; left: -30px; color: var(--text); animation: float 3s ease-in-out infinite; }
+  .chip-2 { top: 50%; right: -30px; transform: translateY(-50%); color: var(--text); animation: float 3s ease-in-out 1.5s infinite; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  .chip-2 { transform: translateY(-50%); }
+  @keyframes float2 {
+    0%, 100% { transform: translateY(-50%); }
+    50% { transform: translateY(calc(-50% - 6px)); }
+  }
+  .chip-2 { animation: float2 3s ease-in-out 1.5s infinite; }
+
+  .chip-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+  }
+
+  /* Stars */
+  .hero-stars {
+    display: flex; align-items: center; gap: 8px;
+    margin-top: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.7s forwards;
+  }
+  .stars { color: #F5A623; font-size: 0.9rem; letter-spacing: 2px; }
+  .stars-text { font-size: 0.82rem; color: var(--text-mid); }
+
+  /* ── SECTION COMMUNE ── */
+  section { padding: 6rem 4rem; }
+
+  .section-tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+  .section-title em { font-style: italic; color: var(--rose-deep); }
+  .section-sub {
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 520px;
+  }
+
+  /* ── STATS BAND ── */
+  .stats-band {
+    background: var(--rose-deep);
+    padding: 3rem 4rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    gap: 2rem;
+  }
+  .stat-item { color: white; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label {
+    font-size: 0.85rem;
+    opacity: 0.75;
+    font-weight: 300;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .how {
+    background: white;
+  }
+  .how-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-top: 3.5rem;
+  }
+  .steps { display: flex; flex-direction: column; gap: 2rem; }
+
+  .step {
+    display: flex; gap: 1.2rem; align-items: flex-start;
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1.5px solid transparent;
+    cursor: default;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .step:hover {
+    border-color: var(--rose-light);
+    background: var(--rose-pale);
+  }
+  .step-num {
+    width: 36px; height: 36px;
+    background: var(--rose-pale);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--rose-deep);
+    flex-shrink: 0;
+  }
+  .step h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.3rem; }
+  .step p { font-size: 0.875rem; color: var(--text-mid); line-height: 1.6; font-weight: 300; }
+
+  /* Phone mockup */
+  .phone-mockup {
+    position: relative;
+    width: 280px;
+    margin: 0 auto;
+  }
+  .phone-frame {
+    background: var(--text);
+    border-radius: 44px;
+    padding: 14px;
+    box-shadow: 0 30px 80px rgba(42,26,32,0.25);
+  }
+  .phone-screen {
+    background: var(--cream);
+    border-radius: 32px;
+    overflow: hidden;
+    min-height: 520px;
+  }
+  .phone-bar {
+    background: white;
+    padding: 1rem 1.2rem 0.8rem;
+    border-bottom: 1px solid var(--sand);
+  }
+  .phone-greeting {
+    font-size: 0.7rem;
+    color: var(--text-light);
+    margin-bottom: 2px;
+  }
+  .phone-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text);
+  }
+  .phone-meals {
+    padding: 0.8rem 1rem;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .phone-meal {
+    background: white;
+    border-radius: 14px;
+    padding: 0.8rem 1rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .meal-emoji { font-size: 1.4rem; }
+  .meal-info-label { font-size: 0.75rem; font-weight: 500; color: var(--text); }
+  .meal-info-cal { font-size: 0.68rem; color: var(--text-light); }
+  .phone-progress {
+    background: white;
+    margin: 0 1rem;
+    border-radius: 14px;
+    padding: 0.8rem 1rem;
+  }
+  .progress-label {
+    display: flex; justify-content: space-between;
+    font-size: 0.7rem; color: var(--text-mid);
+    margin-bottom: 6px;
+  }
+  .progress-bar {
+    height: 6px; background: var(--sand); border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%; width: 68%;
+    background: linear-gradient(90deg, var(--rose), var(--rose-deep));
+    border-radius: 3px;
+  }
+
+  /* ── FEATURES ── */
+  .features { background: var(--cream); }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .feature-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(232,132,154,0.12);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(196,90,116,0.1);
+  }
+  .feature-icon {
+    width: 48px; height: 48px;
+    background: var(--rose-pale);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+  .feature-card h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+  .feature-card p {
+    font-size: 0.875rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+  .feature-card.accent {
+    background: var(--rose-deep);
+    border-color: transparent;
+  }
+  .feature-card.accent .feature-icon { background: rgba(255,255,255,0.15); }
+  .feature-card.accent h3 { color: white; }
+  .feature-card.accent p { color: rgba(255,255,255,0.72); }
+
+  /* ── TÉMOIGNAGES ── */
+  .testimonials { background: white; }
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .testi-card {
+    background: var(--cream);
+    border-radius: 20px;
+    padding: 1.8rem;
+    position: relative;
+  }
+  .testi-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    color: var(--rose-light);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .testi-text {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 1.2rem;
+    font-style: italic;
+  }
+  .testi-author { display: flex; align-items: center; gap: 10px; }
+  .avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: white;
+    flex-shrink: 0;
+  }
+  .testi-name { font-size: 0.85rem; font-weight: 500; color: var(--text); }
+  .testi-loss { font-size: 0.75rem; color: var(--green); font-weight: 500; }
+  .testi-stars { font-size: 0.7rem; color: #F5A623; margin-top: 2px; }
+
+  /* ── PLANS ── */
+  .plans { background: var(--cream); }
+  .plans-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+  }
+  .plan-card {
+    background: white;
+    border-radius: 24px;
+    padding: 2rem;
+    border: 1.5px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .plan-card:hover { border-color: var(--rose-light); }
+  .plan-card.featured {
+    background: var(--rose-deep);
+    border-color: transparent;
+    transform: scale(1.03);
+    box-shadow: 0 20px 60px rgba(196,90,116,0.3);
+  }
+  .plan-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+  }
+  .plan-card.featured .plan-label { color: rgba(255,255,255,0.6); }
+  .plan-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+  .plan-card.featured .plan-name { color: white; }
+  .plan-price {
+    display: flex; align-items: baseline; gap: 4px;
+    margin-bottom: 1.5rem;
+  }
+  .price-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--text);
+  }
+  .plan-card.featured .price-num { color: white; }
+  .price-period { font-size: 0.85rem; color: var(--text-light); }
+  .plan-card.featured .price-period { color: rgba(255,255,255,0.6); }
+  .plan-features { list-style: none; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.7rem; }
+  .plan-features li {
+    font-size: 0.875rem;
+    color: var(--text-mid);
+    display: flex; gap: 8px; align-items: flex-start;
+    font-weight: 300;
+  }
+  .plan-card.featured .plan-features li { color: rgba(255,255,255,0.8); }
+  .check { color: var(--green); font-weight: 500; }
+  .plan-card.featured .check { color: rgba(255,255,255,0.9); }
+  .plan-btn {
+    display: block; text-align: center;
+    padding: 0.8rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .plan-btn-outline {
+    border: 1.5px solid var(--rose-light);
+    color: var(--rose-deep);
+  }
+  .plan-btn-outline:hover {
+    background: var(--rose-pale);
+  }
+  .plan-btn-white {
+    background: white;
+    color: var(--rose-deep);
+  }
+  .plan-btn-white:hover {
+    background: var(--cream);
+    transform: translateY(-1px);
+  }
+
+  /* ── CTA FINAL ── */
+  .cta-section {
+    background: var(--rose-deep);
+    padding: 7rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.08), transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.05), transparent 50%);
+  }
+  .cta-section * { position: relative; z-index: 1; }
+  .cta-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300;
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+  .cta-section h2 em { font-style: italic; opacity: 0.8; }
+  .cta-section p {
+    color: rgba(255,255,255,0.7);
+    font-size: 1.05rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+  }
+  .cta-form {
+    display: flex; gap: 0;
+    max-width: 440px;
+    margin: 0 auto;
+    border-radius: 50px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+  }
+  .cta-input {
+    flex: 1;
+    border: none;
+    padding: 0.9rem 1.4rem;
+    font-size: 0.9rem;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    background: transparent;
+    color: var(--text);
+  }
+  .cta-input::placeholder { color: var(--text-light); }
+  .cta-submit {
+    background: var(--rose-deep);
+    color: white;
+    border: none;
+    padding: 0.9rem 1.6rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .cta-submit:hover { background: var(--rose-dark); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--text);
+    padding: 3rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--rose-light);
+    font-weight: 300;
+  }
+  .footer-copy {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.3);
+  }
+  .footer-links {
+    display: flex; gap: 1.5rem; list-style: none;
+  }
+  .footer-links a {
+    text-decoration: none;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.4);
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--rose-light); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+
+    /* Nav */
+    nav {
+      padding: 1rem 1.4rem;
+    }
+    .nav-links {
+      display: none;
+    }
+    .nav-mobile-cta {
+      display: inline-block;
+      background: var(--rose-deep);
+      color: white;
+      padding: 0.5rem 1.1rem;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    /* Hero */
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 6rem 1.4rem 3rem;
+      gap: 2.5rem;
+      min-height: auto;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+    }
+    .hero-sub {
+      font-size: 0.95rem;
+      max-width: 100%;
+    }
+    .hero-actions {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .btn-primary {
+      width: 100%;
+      text-align: center;
+      padding: 0.9rem 1.4rem;
+    }
+    .hero-visual {
+      order: -1;
+    }
+    .hero-card-main {
+      max-width: 100%;
+      padding: 1.4rem;
+    }
+    .plate-visual {
+      width: 140px;
+      height: 140px;
+    }
+    .plate-icon { font-size: 1.8rem; }
+    .hero-badge {
+      top: -12px;
+      right: -8px;
+      font-size: 0.68rem;
+      padding: 0.4rem 0.6rem;
+    }
+    .floating-chip {
+      display: none;
+    }
+    .hero-stars { margin-top: 1.2rem; }
+
+    /* Stats band */
+    .stats-band {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 2rem 1.4rem;
+      gap: 1.5rem;
+    }
+    .stat-num { font-size: 2.2rem; }
+    .stat-label { font-size: 0.78rem; }
+
+    /* Sections */
+    section { padding: 3.5rem 1.4rem; }
+
+    /* How it works */
+    .how-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .phone-mockup {
+      width: 230px;
+    }
+    .phone-screen { min-height: 420px; }
+    .step { padding: 1rem; }
+
+    /* Features */
+    .features-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .feature-card { padding: 1.4rem; }
+
+    /* Témoignages */
+    .testi-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    /* Plans */
+    .plans-header {
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+    .plans-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .plan-card.featured {
+      transform: none;
+    }
+    .plan-card { padding: 1.4rem; }
+
+    /* CTA */
+    .cta-section { padding: 4rem 1.4rem; }
+    .cta-section h2 { font-size: 2.2rem; }
+    .cta-section p { font-size: 0.9rem; }
+    .cta-form {
+      flex-direction: column;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .cta-input {
+      padding: 0.9rem 1.2rem;
+      border-bottom: 1px solid var(--sand);
+    }
+    .cta-submit {
+      padding: 0.9rem 1.2rem;
+    }
+
+    /* Footer */
+    footer {
+      flex-direction: column;
+      gap: 1.2rem;
+      padding: 2rem 1.4rem;
+      text-align: center;
+    }
+    .footer-links {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    /* Section title */
+    .section-title { font-size: 2rem; }
+  }
+</style>
 </head>
 <body>
 
-<!-- HEADER: MENU + HEROE SECTION -->
-<header>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+   <img src="logo.png" alt="Alimea" srcset="" style="max-width: 100px">
+  </div>
+  <ul class="nav-links">
+    <li><a href="#how">Comment ça marche</a></li>
+    <li><a href="#features">Fonctionnalités</a></li>
+    <li><a href="#testi">Témoignages</a></li>
+    <li><a href="#plans">Tarifs</a></li>
+    <li><a href="#start" class="nav-cta">Commencer</a></li>
+  </ul>
+  <a href="#start" class="nav-mobile-cta" style="display:none;">Commencer</a>
+</nav>
 
-    <div class="menu">
-        <ul>
-            <li class="logo">
-                <a href="https://codeigniter.com" target="_blank">
-                    <svg role="img" aria-label="Visit CodeIgniter.com official website!" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2100 500" height="44"><path fill="#dd4814" d="M148.2 411c-20.53-9.07-34.48-28.61-36.31-50.99 1.2-23.02 13.36-44.06 32.67-56.61-3.17 7.73-2.4 16.53 2 23.6 5.01 7 13.63 10.36 22.07 8.61 12.02-3.38 19.06-15.86 15.68-27.89-1.2-4.21-3.6-8.03-6.88-10.91-13.6-11.06-20.43-28.44-18-45.81 2.33-9.2 7.42-17.52 14.61-23.8-5.4 14.4 9.83 28.61 20.05 35.6 18.14 10.88 35.6 22.84 52.32 35.81 18.27 14.4 28.23 36.94 26.67 60-4.11 24.54-21.47 44.8-45.13 52.4 47.33-10.53 96.13-48.13 97.06-101.46-.93-42.67-26.4-80.96-65.33-98.4h-1.73c.86 2.09 1.28 4.34 1.2 6.61.13-1.47.13-2.93 0-4.4.21 1.73.21 3.47 0 5.2-2.96 12.13-15.2 19.6-27.36 16.64-4.86-1.2-9.2-3.93-12.32-7.87-15.6-20 0-42.76 2.61-64.76 1.6-28.13-11.25-55.02-34.05-71.46 11.41 19.02-3.79 44-14.84 58.21-11.07 14.21-27.07 24.8-40.11 37.2-14.05 13.07-26.93 27.44-38.49 42.8-24.99 30.53-34.8 70.8-26.67 109.4 11.15 37.2 42.07 65.15 80.2 72.4h.21l-.13-.12Zm324.56-159.8q0-17.92 6.16-35.56 6.44-17.92 18.48-31.92t29.68-22.68q17.64-8.96 40.04-8.96 26.6 0 45.36 12.04 19.04 12.04 28 31.36l-15.4 9.52q-4.76-9.8-11.76-16.52-6.72-6.72-14.56-10.92-7.84-4.2-16.24-5.88-8.4-1.96-16.52-1.96-17.92 0-31.64 7.28-13.72 7.28-23.24 19.04-9.24 11.76-14 26.6-4.76 14.56-4.76 29.68 0 16.52 5.6 31.64 5.88 15.12 15.68 26.88 10.08 11.48 23.52 18.48 13.72 6.72 29.68 6.72 8.4 0 17.08-1.96 8.96-2.24 17.08-6.72 8.4-4.76 15.4-11.48 7-7 11.76-16.8l16.24 8.4q-4.76 11.2-13.44 19.88-8.68 8.4-19.32 14.28-10.64 5.88-22.68 8.96-11.76 3.08-23.24 3.08-20.44 0-37.52-8.96-17.08-8.96-29.4-23.24-12.32-14.56-19.32-32.76-6.72-18.48-6.72-37.52Zm263.48 103.6q-15.96 0-29.12-5.88-13.16-6.16-22.96-16.52-9.52-10.36-14.84-24.08Q664 294.6 664 279.48q0-15.4 5.32-29.12 5.6-13.72 15.12-24.08 9.8-10.36 22.96-16.52t28.84-6.16q15.68 0 28.84 6.16 13.44 6.16 22.96 16.52 9.8 10.36 15.12 24.08 5.6 13.72 5.6 29.12 0 15.12-5.32 28.84t-15.12 24.08q-9.52 10.36-22.96 16.52-13.16 5.88-29.12 5.88Zm-52.92-75.04q0 12.32 4.2 22.96 4.2 10.36 11.2 18.48 7.28 7.84 16.8 12.32 9.8 4.48 20.72 4.48 10.92 0 20.44-4.48 9.8-4.76 17.08-12.6 7.28-8.12 11.48-18.76 4.2-10.64 4.2-22.96 0-12.04-4.2-22.68-4.2-10.92-11.48-18.76-7.28-8.12-17.08-12.6-9.52-4.76-20.44-4.76-10.92 0-20.44 4.76-9.52 4.48-16.8 12.6-7.28 8.12-11.48 19.04-4.2 10.64-4.2 22.96ZM900.6 354.8q-15.12 0-28-6.16-12.88-6.44-22.12-16.8t-14.56-23.8q-5.04-13.72-5.04-28.56 0-15.4 5.04-29.12 5.04-14 13.72-24.36 8.96-10.36 21-16.24 12.32-6.16 26.88-6.16 18.48 0 32.76 9.8 14.28 9.52 22.4 23.24V147.6h19.04v179.76q0 7.84 6.72 7.84V352q-4.2.84-6.72.84-6.72 0-11.76-4.2-5.04-4.48-5.04-10.64v-14.28Q946.24 338 931.4 346.4t-30.8 8.4Zm4.2-16.8q7 0 14.84-2.8 8.12-2.8 15.12-7.56 7-5.04 11.76-11.48 5.04-6.72 6.16-14.28V256.8q-2.8-7.56-8.12-14-5.32-6.72-12.32-11.76-6.72-5.04-14.56-7.84-7.84-2.8-15.4-2.8-11.76 0-21.28 5.04-9.52 5.04-16.52 13.44-6.72 8.12-10.36 18.76-3.64 10.64-3.64 21.84 0 11.76 4.2 22.4 4.2 10.64 11.48 18.76 7.28 7.84 17.08 12.6Q893.32 338 904.8 338Zm173.04 16.8q-15.96 0-29.4-5.88-13.16-6.16-22.96-16.52-9.8-10.64-15.4-24.36-5.32-13.72-5.32-29.4 0-15.4 5.32-28.84 5.6-13.72 15.12-23.8 9.8-10.36 23.24-16.24 13.44-6.16 29.12-6.16 15.96 0 29.12 6.16 13.44 5.88 22.96 16.24 9.52 10.36 14.84 23.8 5.32 13.44 5.32 28.56v4.48q0 2.24-.28 3.08h-124.88q.84 11.76 5.32 21.84 4.76 9.8 12.04 17.08 7.28 7.28 16.52 11.48 9.52 3.92 20.16 3.92 7 0 14-1.96t12.88-5.32q5.88-3.36 10.64-8.12 4.76-5.04 7.28-10.92l16.52 4.48q-3.36 8.12-9.52 14.84-6.16 6.44-14.28 11.48-8.12 4.76-17.92 7.56-9.8 2.52-20.44 2.52Zm-53.48-83.44h107.24q-.84-11.76-5.6-21.28-4.48-9.8-11.76-16.8-7-7-16.52-10.92-9.24-3.92-19.88-3.92-10.64 0-20.16 3.92t-16.8 10.92q-7 7-11.48 16.8-4.2 9.8-5.04 21.28Zm193.2 80.64h-38.64V153.2h38.64V352Zm93.52.84q-14.84 0-26.88-5.88t-21-15.96q-8.68-10.36-13.44-23.8-4.76-13.44-4.76-28.56 0-15.96 5.04-29.68 5.04-13.72 14-24.08 8.96-10.36 21.56-16.24 12.6-5.88 27.72-5.88 17.08 0 29.96 7.84 12.88 7.56 21.28 20.44v-25.76h32.76V345q0 16.24-6.16 29.12-6.16 12.88-17.08 21.84-10.64 8.96-25.76 13.72-14.84 4.76-32.48 4.76-24.08 0-40.6-7.84-16.24-8.12-28-22.68l20.44-19.88q8.4 10.36 21 16.24 12.88 5.88 27.16 5.88 8.68 0 16.52-2.24 8.12-2.52 14.28-7.56 6.16-5.04 9.52-12.88 3.64-7.84 3.64-18.48v-18.48q-7.28 12.6-20.44 19.6-13.16 6.72-28.28 6.72Zm12.6-29.96q6.16 0 11.76-1.96t10.36-5.32q4.76-3.36 8.4-7.84 3.64-4.48 5.6-9.52v-35q-5.04-12.88-15.96-20.72-10.64-7.84-22.4-7.84-8.68 0-15.68 3.92-7 3.64-12.04 10.08-5.04 6.16-7.84 14.28-2.52 8.12-2.52 16.8 0 8.96 3.08 16.8t8.4 13.72q5.6 5.88 12.88 9.24 7.28 3.36 15.96 3.36Zm243.88-62.44V352h-37.52v-82.32q0-17.64-6.16-25.76-6.16-8.12-17.08-8.12-5.6 0-11.48 2.24-5.88 2.24-11.2 6.44-5.04 3.92-9.24 9.52t-6.16 12.32V352h-37.52V205.28h33.88v27.16q8.12-14 23.52-21.84t34.72-7.84q13.72 0 22.4 5.04 8.68 5.04 13.44 13.16 4.76 8.12 6.44 18.48 1.96 10.36 1.96 21Zm70.28 91.56h-37.52V205.28h37.52V352Zm0-167.16h-37.52V147.6h37.52v37.24Zm114.24 129.92 7.56 29.68q-7.56 3.36-18.48 6.72-10.92 3.36-22.96 3.36-7.84 0-14.84-1.96-6.72-1.96-12.04-6.16-5.04-4.48-8.12-11.2-3.08-7-3.08-16.8v-84.28h-19.32v-28.84h19.32v-47.6h37.52v47.6h30.8v28.84h-30.8v71.68q0 7.84 3.92 11.2 4.2 3.08 10.08 3.08t11.48-1.96q5.6-1.96 8.96-3.36Zm91.56 40.04q-17.64 0-31.92-5.88-14.28-6.16-24.36-16.52t-15.68-24.08q-5.32-13.72-5.32-28.84 0-15.68 5.32-29.4 5.32-14 15.4-24.36 10.08-10.64 24.36-16.8 14.56-6.16 32.48-6.16 17.92 0 31.92 6.16 14.28 6.16 24.08 16.52 10.08 10.36 15.12 24.08 5.32 13.72 5.32 28.56 0 3.64-.28 7 0 3.36-.56 5.6h-113.4q.84 8.68 4.2 15.4 3.36 6.72 8.68 11.48 5.32 4.76 12.04 7.28 6.72 2.52 14 2.52 11.2 0 21-5.32 10.08-5.6 13.72-14.56l32.2 8.96q-8.12 16.8-26.04 27.72-17.64 10.64-42.28 10.64Zm-38.08-88.48h76.16q-1.4-16.52-12.32-26.32-10.64-10.08-26.04-10.08-7.56 0-14.28 2.8-6.44 2.52-11.48 7.28t-8.4 11.48q-3.08 6.72-3.64 14.84Zm225.12-62.72v34.16q-17.08.28-30.52 6.72-13.44 6.16-19.32 18.76V352h-37.52V205.28h34.44v31.36q3.92-7.56 9.24-13.44 5.32-6.16 11.48-10.64t12.32-6.72q6.44-2.52 12.32-2.52h4.48q1.68 0 3.08.28Z"/></svg>
-                </a>
-            </li>
-            <li class="menu-toggle">
-                <button id="menuToggle">&#9776;</button>
-            </li>
-            <li class="menu-item hidden"><a href="#">Home</a></li>
-            <li class="menu-item hidden"><a href="https://codeigniter.com/user_guide/" target="_blank">Docs</a>
-            </li>
-            <li class="menu-item hidden"><a href="https://forum.codeigniter.com/" target="_blank">Community</a></li>
-            <li class="menu-item hidden"><a
-                    href="https://codeigniter.com/contribute" target="_blank">Contribute</a>
-            </li>
-        </ul>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-tag">Programme 100 % personnalisé</div>
+    <h1>Votre corps mérite<br><em>la meilleure version</em><br>de lui-même.</h1>
+    <p class="hero-sub">Aliméa crée votre programme alimentaire sur mesure — adapté à votre morphologie, vos goûts et votre rythme de vie. Perdez du poids durablement, avec plaisir.</p>
+    <!-- TODO: -->
+    <div class="hero-actions">
+      <a href="#start" class="btn-primary">Commencer l' anenture</a>
+      <a href="#how" class="btn-ghost">
+        Voir comment ça marche
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
     </div>
-
-    <div class="heroe">
-
-        <h1>Welcome to CodeIgniter <?= CodeIgniter\CodeIgniter::CI_VERSION ?></h1>
-
-        <h2>The small framework with powerful features</h2>
-
+    <div class="hero-stars">
+      <span class="stars">★★★★★</span>
+      <span class="stars-text"><strong>4,9/5</strong> — plus de 32 000 femmes satisfaites</span>
     </div>
+  </div>
 
-</header>
+  <div class="hero-visual">
+    <div class="hero-card-main">
+      <div class="hero-badge">✦ Programme du jour</div>
 
-<!-- CONTENT -->
+      <div class="plate-visual">
+        <div class="plate-icon">🥗</div>
+      </div>
 
-<section>
+      <p class="meal-label">Déjeuner équilibré</p>
+      <p class="meal-sub">Salade niçoise légère · 380 kcal</p>
 
-    <h1>About this page</h1>
+      <div class="macros">
+        <div class="macro">
+          <div class="macro-val">32g</div>
+          <div class="macro-name">Protéines</div>
+        </div>
+        <div class="macro">
+          <div class="macro-val">28g</div>
+          <div class="macro-name">Glucides</div>
+        </div>
+        <div class="macro">
+          <div class="macro-val">14g</div>
+          <div class="macro-name">Lipides</div>
+        </div>
+      </div>
 
-    <p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
-
-    <p>If you would like to edit this page you will find it located at:</p>
-
-    <pre><code>app/Views/welcome_message.php</code></pre>
-
-    <p>The corresponding controller for this page can be found at:</p>
-
-    <pre><code>app/Controllers/Home.php</code></pre>
-
+      <div class="floating-chip chip-1">
+        <div class="chip-dot" style="background: var(--green);"></div>
+        −2,4 kg ce mois-ci 🎉
+      </div>
+      <div class="floating-chip chip-2">
+        🔥 1 250 kcal aujourd'hui
+      </div>
+    </div>
+  </div>
 </section>
 
-<div class="further">
-
-    <section>
-
-        <h1>Go further</h1>
-
-        <h2>
-            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect x='32' y='96' width='64' height='368' rx='16' ry='16' class="svg-stroke" /><line x1='112' y1='224' x2='240' y2='224' class="svg-stroke" /><line x1='112' y1='400' x2='240' y2='400' class="svg-stroke" /><rect x='112' y='160' width='128' height='304' rx='16' ry='16' class="svg-stroke" /><rect x='256' y='48' width='96' height='416' rx='16' ry='16' class="svg-stroke" /><path d='M422.46,96.11l-40.4,4.25c-11.12,1.17-19.18,11.57-17.93,23.1l34.92,321.59c1.26,11.53,11.37,20,22.49,18.84l40.4-4.25c11.12-1.17,19.18-11.57,17.93-23.1L445,115C443.69,103.42,433.58,94.94,422.46,96.11Z' class="svg-stroke"/></svg>
-            Learn
-        </h2>
-
-        <p>The User Guide contains an introduction, tutorial, a number of "how to"
-            guides, and then reference documentation for the components that make up
-            the framework. Check the <a href="https://codeigniter.com/user_guide/"
-            target="_blank">User Guide</a> !</p>
-
-        <h2>
-            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path d='M431,320.6c-1-3.6,1.2-8.6,3.3-12.2a33.68,33.68,0,0,1,2.1-3.1A162,162,0,0,0,464,215c.3-92.2-77.5-167-173.7-167C206.4,48,136.4,105.1,120,180.9a160.7,160.7,0,0,0-3.7,34.2c0,92.3,74.8,169.1,171,169.1,15.3,0,35.9-4.6,47.2-7.7s22.5-7.2,25.4-8.3a26.44,26.44,0,0,1,9.3-1.7,26,26,0,0,1,10.1,2L436,388.6a13.52,13.52,0,0,0,3.9,1,8,8,0,0,0,8-8,12.85,12.85,0,0,0-.5-2.7Z' class="svg-stroke" /><path d='M66.46,232a146.23,146.23,0,0,0,6.39,152.67c2.31,3.49,3.61,6.19,3.21,8s-11.93,61.87-11.93,61.87a8,8,0,0,0,2.71,7.68A8.17,8.17,0,0,0,72,464a7.26,7.26,0,0,0,2.91-.6l56.21-22a15.7,15.7,0,0,1,12,.2c18.94,7.38,39.88,12,60.83,12A159.21,159.21,0,0,0,284,432.11' class="svg-stroke" /></svg>
-            Discuss
-        </h2>
-
-        <p>CodeIgniter is a community-developed open source project, with several
-             venues for the community members to gather and exchange ideas. View all
-             the threads on <a href="https://forum.codeigniter.com/"
-             target="_blank">CodeIgniter's forum</a>, or <a href="https://join.slack.com/t/codeigniterchat/shared_invite/zt-rl30zw00-obL1Hr1q1ATvkzVkFp8S0Q"
-             target="_blank">chat on Slack</a> !</p>
-
-        <h2>
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><line x1='176' y1='48' x2='336' y2='48' class="svg-stroke" /><line x1='118' y1='304' x2='394' y2='304' class="svg-stroke" /><path d='M208,48v93.48a64.09,64.09,0,0,1-9.88,34.18L73.21,373.49C48.4,412.78,76.63,464,123.08,464H388.92c46.45,0,74.68-51.22,49.87-90.51L313.87,175.66A64.09,64.09,0,0,1,304,141.48V48' class="svg-stroke" /></svg>
-             Contribute
-        </h2>
-
-        <p>CodeIgniter is a community driven project and accepts contributions
-             of code and documentation from the community. Why not
-             <a href="https://codeigniter.com/contribute" target="_blank">
-             join us</a> ?</p>
-
-    </section>
-
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stat-item">
+    <div class="stat-num">32K+</div>
+    <div class="stat-label">femmes accompagnées</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">−5,8 kg</div>
+    <div class="stat-label">perte moyenne en 3 mois</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">94%</div>
+    <div class="stat-label">de satisfaction client</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">1 200+</div>
+    <div class="stat-label">recettes healthy disponibles</div>
+  </div>
 </div>
 
-<!-- FOOTER: DEBUG INFO + COPYRIGHTS -->
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="section-tag">Comment ça marche</div>
+    <div class="section-title">Simple, rapide,<br><em>et tellement efficace.</em></div>
+    <div class="how-grid">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <h3>Votre profil en 3 minutes</h3>
+            <p>Répondez à quelques questions sur votre corpulence, votre mode de vie et vos préférences alimentaires. Aucune prise de sang, aucun rendez-vous.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <h3>Votre programme sur mesure</h3>
+            <p>Notre algorithme génère un plan alimentaire hebdomadaire complet avec des repas que vous adorez, calé sur vos besoins caloriques précis.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <h3>Cuisinez et savourez</h3>
+            <p>Accédez aux recettes détaillées avec liste de courses auto-générée. Chaque repas est pensé pour être rapide, bon et équilibré.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div>
+            <h3>Suivez vos progrès</h3>
+            <p>Notez vos repas, pesez-vous, visualisez votre évolution. Votre programme s'adapte en temps réel à vos résultats.</p>
+          </div>
+        </div>
+      </div>
 
+      <div class="phone-mockup">
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="phone-bar">
+              <div class="phone-greeting">Bonjour Sophie 👋</div>
+              <div class="phone-name">Votre journée du mardi</div>
+            </div>
+            <div class="phone-meals">
+              <div class="phone-meal">
+                <div class="meal-emoji">🥣</div>
+                <div>
+                  <div class="meal-info-label">Petit-déjeuner</div>
+                  <div class="meal-info-cal">Yaourt granola fraises · 280 kcal</div>
+                </div>
+              </div>
+              <div class="phone-meal">
+                <div class="meal-emoji">🥗</div>
+                <div>
+                  <div class="meal-info-label">Déjeuner</div>
+                  <div class="meal-info-cal">Salade niçoise légère · 380 kcal</div>
+                </div>
+              </div>
+              <div class="phone-meal">
+                <div class="meal-emoji">🍎</div>
+                <div>
+                  <div class="meal-info-label">Collation</div>
+                  <div class="meal-info-cal">Pomme + amandes · 180 kcal</div>
+                </div>
+              </div>
+              <div class="phone-meal">
+                <div class="meal-emoji">🐟</div>
+                <div>
+                  <div class="meal-info-label">Dîner</div>
+                  <div class="meal-info-cal">Saumon légumes vapeur · 420 kcal</div>
+                </div>
+              </div>
+            </div>
+            <div class="phone-progress">
+              <div class="progress-label">
+                <span>1 260 kcal consommées</span>
+                <span>1 400 kcal objectif</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="section-tag">Fonctionnalités</div>
+    <div class="section-title">Tout ce dont vous avez besoin<br><em>pour réussir.</em></div>
+    <div class="features-grid" style="margin-top:3rem;">
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>Programme 100 % personnalisé</h3>
+        <p>Chaque plan est calculé selon votre IMC, votre métabolisme, vos allergies et vos préférences. Aucun copier-coller.</p>
+      </div>
+      <div class="feature-card accent">
+        <div class="feature-icon">🌿</div>
+        <h3>1 200+ recettes santé</h3>
+        <p>Des recettes simples, gourmandes, équilibrées. Notées par notre communauté, filtrées selon vos goûts du jour.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛒</div>
+        <h3>Liste de courses auto</h3>
+        <p>Votre liste de courses générée automatiquement pour la semaine. Optimisée, groupée par rayon, sans gaspillage.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Suivi des macros</h3>
+        <p>Calories, protéines, glucides, lipides : tout est tracké en temps réel sans que vous ayez à calculer quoi que ce soit.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💬</div>
+        <h3>Coach nutritionnel IA</h3>
+        <p>Posez vos questions à votre coach virtuel 24h/24. Conseils, encouragements, adaptation du programme.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📈</div>
+        <h3>Courbe de progression</h3>
+        <p>Visualisez votre évolution semaine par semaine. Restez motivée avec des jalons et des célébrations de vos victoires.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TÉMOIGNAGES -->
+<section class="testimonials" id="testi">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="section-tag">Témoignages</div>
+    <div class="section-title">Elles ont transformé<br><em>leur rapport à l'alimentation.</em></div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Après des années de régimes yo-yo, Aliméa est la première méthode qui me convient vraiment. Je ne me prive pas, je mange mieux.</p>
+        <div class="testi-author">
+          <div class="avatar" style="background: var(--rose);">ML</div>
+          <div>
+            <div class="testi-name">Marie-Laure, 38 ans</div>
+            <div class="testi-loss">−7 kg en 4 mois</div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Les recettes sont délicieuses et rapides à faire. Ma famille mange les mêmes plats que moi. Un vrai gain de temps au quotidien.</p>
+        <div class="testi-author">
+          <div class="avatar" style="background: var(--rose-deep);">SB</div>
+          <div>
+            <div class="testi-name">Sophie B., 44 ans</div>
+            <div class="testi-loss">−5,2 kg en 3 mois</div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Le suivi de mes macros m'a ouvert les yeux. Je ne compte plus les calories obsessionnellement, je comprends ce que je mange.</p>
+        <div class="testi-author">
+          <div class="avatar" style="background: var(--green);">CA</div>
+          <div>
+            <div class="testi-name">Camille A., 29 ans</div>
+            <div class="testi-loss">−9 kg en 5 mois</div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section class="plans" id="plans">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="plans-header">
+      <div>
+        <div class="section-tag">Tarifs</div>
+        <div class="section-title">Investissez dans<br><em>votre bien-être.</em></div>
+      </div>
+      <p class="section-sub" style="max-width:300px; font-size:0.9rem;">Pas d'engagement. Annulez à tout moment. Essai gratuit 7 jours sur tous les plans.</p>
+    </div>
+    <div class="plans-grid">
+      <div class="plan-card">
+        <div class="plan-label">Démarrage</div>
+        <div class="plan-name">Essentiel</div>
+        <div class="plan-price">
+          <span class="price-num">9€</span>
+          <span class="price-period">/ mois</span>
+        </div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Programme hebdomadaire personnalisé</li>
+          <li><span class="check">✓</span> Accès à 300 recettes</li>
+          <li><span class="check">✓</span> Suivi des calories</li>
+          <li><span class="check">✓</span> Liste de courses</li>
+        </ul>
+        <a href="#start" class="plan-btn plan-btn-outline">Essayer gratuitement</a>
+      </div>
+
+      <div class="plan-card featured">
+        <div class="plan-label">Le plus populaire</div>
+        <div class="plan-name">Premium</div>
+        <div class="plan-price">
+          <span class="price-num" style="color:white;">19€</span>
+          <span class="price-period" style="color:rgba(255,255,255,0.6);">/ mois</span>
+        </div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Tout Essentiel inclus</li>
+          <li><span class="check">✓</span> 1 200+ recettes complètes</li>
+          <li><span class="check">✓</span> Suivi des macros détaillé</li>
+          <li><span class="check">✓</span> Coach nutritionnel IA</li>
+          <li><span class="check">✓</span> Adaptation en temps réel</li>
+        </ul>
+        <a href="#start" class="plan-btn plan-btn-white">Commencer maintenant</a>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-label">Accompagnement total</div>
+        <div class="plan-name">Coaching</div>
+        <div class="plan-price">
+          <span class="price-num">39€</span>
+          <span class="price-period">/ mois</span>
+        </div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Tout Premium inclus</li>
+          <li><span class="check">✓</span> Consultation diététicienne</li>
+          <li><span class="check">✓</span> Coaching WhatsApp hebdo</li>
+          <li><span class="check">✓</span> Bilan mensuel personnalisé</li>
+        </ul>
+        <a href="#start" class="plan-btn plan-btn-outline">Essayer gratuitement</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section" id="start">
+  <h2>Prête à commencer<br>votre <em>transformation</em> ?</h2>
+  <p>Rejoignez 32 000 femmes qui ont repris le contrôle de leur alimentation.<br>7 jours offerts, sans carte bancaire.</p>
+  <div class="cta-form">
+    <input type="email" class="cta-input" placeholder="Votre adresse e-mail...">
+    <button class="cta-submit">Je démarre →</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-    <div class="environment">
-
-        <p>Page rendered in {elapsed_time} seconds using {memory_usage} MB of memory.</p>
-
-        <p>Environment: <?= ENVIRONMENT ?></p>
-
-    </div>
-
-    <div class="copyrights">
-
-        <p>&copy; <?= date('Y') ?> CodeIgniter Foundation. CodeIgniter is open source project released under the MIT
-            open source licence.</p>
-
-    </div>
-
+  <div class="footer-logo"><img src="logo.png" alt="" srcset=""></div>
+  <ul class="footer-links">
+    <li><a href="#">Confidentialité</a></li>
+    <li><a href="#">CGV</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">Blog</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Aliméa — Tous droits réservés</div>
 </footer>
 
-<!-- SCRIPTS -->
-
-<script {csp-script-nonce}>
-    document.getElementById("menuToggle").addEventListener('click', toggleMenu);
-    function toggleMenu() {
-        var menuItems = document.getElementsByClassName('menu-item');
-        for (var i = 0; i < menuItems.length; i++) {
-            var menuItem = menuItems[i];
-            menuItem.classList.toggle("hidden");
-        }
-    }
+<script>
+  function checkMobile() {
+    var mCta = document.querySelector('.nav-mobile-cta');
+    if (mCta) mCta.style.display = window.innerWidth <= 768 ? 'inline-block' : 'none';
+  }
+  checkMobile();
+  window.addEventListener('resize', checkMobile);
 </script>
-
-<!-- -->
-
 </body>
 </html>
