@@ -4,18 +4,16 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class CodePortefeuilleModel extends Model
+class gold_payement extends Model
 {
-    protected $table = 'codes_portefeuille';
+    protected $table = 'gold_payement';
     protected $primaryKey = 'id';
     protected $returnType = 'array';
 
     protected $allowedFields = [
-        'code',
-        'montant',
-        'is_used',
-        'used_at',
+        'user_id',
+        'prix_paye',
+        'code_remise_id',
         'created_at',
-        'used_by',
     ];
 }

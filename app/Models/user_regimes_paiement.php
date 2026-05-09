@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserRegimePaiementModel extends Model
+class user_regimes_paiement extends Model
 {
     protected $table = 'user_regimes_paiement';
     protected $primaryKey = 'id';

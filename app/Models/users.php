@@ -4,15 +4,19 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class CodeRemiseTransactionModel extends Model
+class users extends Model
 {
-    protected $table = 'codes_remise_transactions';
+    protected $table = 'users';
     protected $primaryKey = 'id';
     protected $returnType = 'array';
 
     protected $allowedFields = [
-        'user_id',
-        'code_remise_id',
+        'nom',
+        'prenom',
+        'email',
+        'password',
+        'genre',
+        'date_naissance',
         'created_at',
     ];
 }

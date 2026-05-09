@@ -4,15 +4,16 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ParametreModel extends Model
+class wallet_transactions extends Model
 {
-    protected $table = 'parametres';
+    protected $table = 'wallet_transactions';
     protected $primaryKey = 'id';
     protected $returnType = 'array';
 
     protected $allowedFields = [
-        'cle',
-        'valeur',
+        'user_id',
+        'type',
+        'montant',
         'description',
         'created_at',
     ];
