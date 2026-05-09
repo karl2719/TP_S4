@@ -188,8 +188,7 @@ CREATE TABLE codes_remise (
     cle         VARCHAR(80)   NOT NULL UNIQUE COMMENT 'Ex : prix_gold, remise_gold_pct, imc_min_normal',
     valeur      VARCHAR(255)  NOT NULL,
     description TEXT          NULL,
-    created_at  DATETIME      NOT NULL DEFAULT CURRENT_TIMESTAMP
-                              ON UPDATE CURRENT_TIMESTAMP,
+    created_at  DATETIME      NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
     INDEX idx_cle (cle)
 ) ;
