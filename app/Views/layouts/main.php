@@ -22,7 +22,7 @@
 <?php $userData = $user ?? null; ?>
 
 <!-- NAVBAR -->
-<nav class="navbar-main" id="navbar">
+<nav class="navbar-main <?= $isLoggedIn ? 'navbar-client' : '' ?>" id="navbar">
     <a class="nav-logo" href="<?= base_url('/') ?>">
         <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
             <path d="M20 4 L20 28 M16 8 L20 4 L24 8" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>

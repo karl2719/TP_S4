@@ -13,7 +13,7 @@ $imcColor = $imcStatus === 'normal' ? '#52B788' : ($imcStatus === 'surpoids' ? '
 ?>
 
 <!-- Greeting Banner -->
-<div class="greeting-banner" data-aos="fade-down">
+<div class="greeting-banner" data-aos="fade-down" style="margin-top: 3%;">
     <div class="container-cja">
         <h1>Bonjour, <?= esc($user['prenom']) ?> 👋</h1>
         <div class="greeting-date"><?= esc($todayLabel) ?></div>
